@@ -43,7 +43,7 @@ def main():
 	if '--sql' in sys.argv:
 		print(bcolors.SQLColor+"In Top 25 SQL:\n"+bcolors.RESET)
 		for url in sql:
-			print(bcolors.SQLColor+url+bcolors.RESET)
+			print(url)
 	else:
 		pass
 
@@ -52,7 +52,7 @@ def main():
 	if '--rce' in sys.argv:
 		print(bcolors.RCEColor+"In Top 25 RCE:\n"+bcolors.RESET)
 		for url in rce:
-			print(bcolors.RCEColor+url+bcolors.RESET)
+			print(url)
 	else:
 		pass
 
@@ -61,7 +61,7 @@ def main():
 	if '--lfi' in sys.argv:
 		print(bcolors.LFIColor+"In Top 25 LFI:\n"+bcolors.RESET)
 		for url in lfi:
-			print(bcolors.LFIColor+url+bcolors.RESET)
+			print(url)
 	else:
 		pass
 	print("------------------------------------------")
@@ -69,7 +69,7 @@ def main():
 	if '--open-redirect' in sys.argv:
 		print(bcolors.OpenRedColor+"In Top Open Redirect:\n"+bcolors.RESET)
 		for url in open:
-			print(bcolors.OpenRedColor+url+bcolors.RESET)
+			print(url)
 	else:
 		pass
 
