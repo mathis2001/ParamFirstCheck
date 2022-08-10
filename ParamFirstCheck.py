@@ -13,8 +13,6 @@ def Search(list, emptylist, line):
 	for param in list:
 		if param in line:
 			emptylist.append(line)
-		else:
-			sys.exit(1)
 	return emptylist
 
 
@@ -28,35 +26,60 @@ def main():
 	lfilist = []
 	openred = []
 	
+	if len(sys.argv)>5:
+		print(bcolors.LFIColor+"[!] "+bcolors.RESET+"too much arguments")
+		sys.exit(1)
+	elif len(sys.argv)<2:
+		print(bcolors.LFIColor+"[!] "+bcolors.RESET+"No argument given")
+		sys.exit(1)
+	
 	for line in sys.stdin:
 		sql = Search(SqlParam, sqlist, line)
 		rce = Search(RceParam, rcelist, line)
 		lfi = Search(LfiParam, lfilist, line)
 		open = Search(OpenParam, openred, line)
+	
 
-	print(bcolors.SQLColor+"In Top 25 SQL:\n"+bcolors.RESET)
-	for url in sql:
-		print(bcolors.SQLColor+url+bcolors.RESET)
+	if '--sql' in sys.argv:
+		print(bcolors.SQLColor+"In Top 25 SQL:\n"+bcolors.RESET)
+		for url in sql:
+			print(bcolors.SQLColor+url+bcolors.RESET)
+	else:
+		pass
+
 	print("------------------------------------------")
-	print(bcolors.RCEColor+"In Top 25 RCE:\n"+bcolors.RESET)
-	for url in rce:
-		print(bcolors.RCEColor+url+bcolors.RESET)
+
+	if '--rce' in sys.argv:
+		print(bcolors.RCEColor+"In Top 25 RCE:\n"+bcolors.RESET)
+		for url in rce:
+			print(bcolors.RCEColor+url+bcolors.RESET)
+	else:
+		pass
+
 	print("------------------------------------------")
-	print(bcolors.LFIColor+"In Top 25 LFI:\n"+bcolors.RESET)
-	for url in lfi:
-		print(bcolors.LFIColor+url+bcolors.RESET)
+	
+	if '--lfi' in sys.argv:
+		print(bcolors.LFIColor+"In Top 25 LFI:\n"+bcolors.RESET)
+		for url in lfi:
+			print(bcolors.LFIColor+url+bcolors.RESET)
+	else:
+		pass
 	print("------------------------------------------")
-	print(bcolors.OpenRedColor+"In Top Open Redirect:\n"+bcolors.RESET)
-	for url in open:
-		print(bcolors.OpenRedColor+url+bcolors.RESET)
+	
+	if '--open-redirect' in sys.argv:
+		print(bcolors.OpenRedColor+"In Top Open Redirect:\n"+bcolors.RESET)
+		for url in open:
+			print(bcolors.OpenRedColor+url+bcolors.RESET)
+	else:
+		pass
 
 if __name__ == '__main__':
 	try:
 		main()
 	except Exception as e:
-		print(bcolors.RCEColor+"[!] "+bcolors.RESET+"A problem has occured.")
+		print(bcolors.LFIColor+"[!] "+bcolors.RESET+"A problem has occured.")
 		print(bcolors.OpenRedColor+"[*] "+bcolors.RESET+"Error info:")
 		print(e)
 	except KeyboardInterrupt:
-	       	print(bcolors.RCEColor+"[!] "+bcolors.RESET+"Script canceled.")			
+	       	print(bcolors.LFIColor+"[!] "+bcolors.RESET+"Script canceled.")			
 
