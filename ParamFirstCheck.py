@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-import fileinput
+import sys
 
 class bcolors:
 	SQLColor = '\033[92m'
@@ -13,6 +13,8 @@ def Search(list, emptylist, line):
 	for param in list:
 		if param in line:
 			emptylist.append(line)
+		else:
+			sys.exit(1)
 	return emptylist
 
 
@@ -25,28 +27,28 @@ def main():
 	rcelist = []
 	lfilist = []
 	openred = []
-	with fileinput.input() as stdout:
-		for line in stdout:
-			sql = Search(SqlParam, sqlist, line)
-			rce = Search(RceParam, rcelist, line)
-			lfi = Search(LfiParam, lfilist, line)
-			open = Search(OpenParam, openred, line)
+	
+	for line in sys.stdin:
+		sql = Search(SqlParam, sqlist, line)
+		rce = Search(RceParam, rcelist, line)
+		lfi = Search(LfiParam, lfilist, line)
+		open = Search(OpenParam, openred, line)
 
-		print(bcolors.SQLColor+"In Top 25 SQL:\n"+bcolors.RESET)
-		for url in sql:
-			print(bcolors.SQLColor+url+bcolors.RESET)
-		print("------------------------------------------")
-		print(bcolors.RCEColor+"In Top 25 RCE:\n"+bcolors.RESET)
-		for url in rce:
-			print(bcolors.RCEColor+url+bcolors.RESET)
-		print("------------------------------------------")
-		print(bcolors.LFIColor+"In Top 25 LFI:\n"+bcolors.RESET)
-		for url in lfi:
-			print(bcolors.LFIColor+url+bcolors.RESET)
-		print("------------------------------------------")
-		print(bcolors.OpenRedColor+"In Top Open Redirect:\n"+bcolors.RESET)
-		for url in open:
-			print(bcolors.OpenRedColor+url+bcolors.RESET)
+	print(bcolors.SQLColor+"In Top 25 SQL:\n"+bcolors.RESET)
+	for url in sql:
+		print(bcolors.SQLColor+url+bcolors.RESET)
+	print("------------------------------------------")
+	print(bcolors.RCEColor+"In Top 25 RCE:\n"+bcolors.RESET)
+	for url in rce:
+		print(bcolors.RCEColor+url+bcolors.RESET)
+	print("------------------------------------------")
+	print(bcolors.LFIColor+"In Top 25 LFI:\n"+bcolors.RESET)
+	for url in lfi:
+		print(bcolors.LFIColor+url+bcolors.RESET)
+	print("------------------------------------------")
+	print(bcolors.OpenRedColor+"In Top Open Redirect:\n"+bcolors.RESET)
+	for url in open:
+		print(bcolors.OpenRedColor+url+bcolors.RESET)
 
 if __name__ == '__main__':
 	try:
