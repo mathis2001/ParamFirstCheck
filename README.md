@@ -8,15 +8,15 @@ $ git clone https://github.com/mathis2001/ParamFirstCheck
 
 ## Usage:
 ```bash
-$ cat urls.txt | python3 ParamFirstCheck.py
+$ cat urls.txt | python3 ParamFirstCheck.py [--sql] [--rce] [--lfi] [--open-redirect]
 
 or with an other tool like waybackurls
 
-$ waybackurls exemple.com | python3 ParamFirstCheck.py
+$ waybackurls exemple.com | python3 ParamFirstCheck.py [--sql] [--rce] [--lfi] [--open-redirect]
 ```
 ## Screeenshots
 
-![tempsnip](https://user-images.githubusercontent.com/40497633/183649507-3023f81b-2094-457a-9953-bde3d539d162.png)
-![tempsnip](https://user-images.githubusercontent.com/40497633/183648302-b7132d47-4754-47b5-9801-37e914c4e108.png)
-![tempsnip](https://user-images.githubusercontent.com/40497633/183648869-f01c4ca6-6f15-493b-ad0c-8d3ed11cccd9.png)
-![tempsnip](https://user-images.githubusercontent.com/40497633/183649066-9075ae9d-59d9-468a-b89b-db05f15bd8af.png)
+![tempsnip](https://user-images.githubusercontent.com/40497633/183855360-874da841-14a3-4679-8ec3-34d5568b2155.png)
+![tempsnip](https://user-images.githubusercontent.com/40497633/183855664-7bc3719e-80b1-417a-9752-cf9d76a241dd.png)
+![tempsnip](https://user-images.githubusercontent.com/40497633/183856001-6ca9d21b-1769-4bd3-a75e-550fb1c97880.png)
+![tempsnip](https://user-images.githubusercontent.com/40497633/183856275-1d99ae83-b1ef-4839-90f0-4c033caca1e0.png)
