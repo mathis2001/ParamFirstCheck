@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import sys
+import requests
 
 class bcolors:
 	SQLColor = '\033[92m'
@@ -15,18 +16,18 @@ def Search(list, emptylist, line):
 			emptylist.append(line)
 	return emptylist
 
-
 def main():
 	SqlParam = ["id=","page=","dir=","search=","category=","class=","file=","url=","news=","item=","menu=","lang=","name=","ref=","title=","view=","topic=","thread=","type=","data=","form=","join=","main=","nav=","region="] 
 	RceParam = ["cmd=", "exec=","command=","execute=","ping=","query=","jump=","code=","reg=","do=","func=","arg=","option=","load=","process=","step=","read=","function=","req=","feature=","exe=","module=","payload=","run=","print="]
 	LfiParam = ["cat=", "dir=","action=","board=","date=","detail=","file=","download=","path=","folder=","prefix=","include=","page=","inc=","locate=","show=","doc=","site=","type=","view=","content=","document=","layout=","mod=","conf="]
 	OpenParam = ["next=", "url=", "target=","rurl=","dest=","destination=","redir=","redirect_url=","redirect_uri=","redirect=","/redirect/","cgi-bin/redirect","/out/","view=","/login?to=","image_url=","go=","return=","returnTo=","return_to=","checkout_url=","continue=","return_path="]
-	sqlist= []
+	sqlist = []
 	rcelist = []
 	lfilist = []
 	openred = []
+	proxies  = {"http":"http://127.0.0.1:8080", "https":"http://127.0.0.1:8080"}
 	
-	if len(sys.argv)>5:
+	if len(sys.argv)>6:
 		print(bcolors.LFIColor+"[!] "+bcolors.RESET+"too much arguments")
 		sys.exit(1)
 	elif len(sys.argv)<2:
@@ -44,6 +45,8 @@ def main():
 		print(bcolors.SQLColor+"In Top 25 SQL:\n"+bcolors.RESET)
 		for url in sql:
 			print(url)
+			if '--proxy' in sys.argv:
+				r = requests.get(url, proxies=proxies, verify=False)
 	else:
 		pass
 
@@ -53,6 +56,8 @@ def main():
 		print(bcolors.RCEColor+"In Top 25 RCE:\n"+bcolors.RESET)
 		for url in rce:
 			print(url)
+			if '--proxy' in sys.argv:
+				r = requests.get(url, proxies=proxies, verify=False)
 	else:
 		pass
 
@@ -62,6 +67,8 @@ def main():
 		print(bcolors.LFIColor+"In Top 25 LFI:\n"+bcolors.RESET)
 		for url in lfi:
 			print(url)
+			if '--proxy' in sys.argv:
+				r = requests.get(url, proxies=proxies, verify=False)
 	else:
 		pass
 	print("------------------------------------------")
@@ -70,6 +77,8 @@ def main():
 		print(bcolors.OpenRedColor+"In Top Open Redirect:\n"+bcolors.RESET)
 		for url in open:
 			print(url)
+			if '--proxy' in sys.argv:
+				r = requests.get(url, proxies=proxies, verify=False)
 	else:
 		pass
 
