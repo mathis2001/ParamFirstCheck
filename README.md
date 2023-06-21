@@ -8,11 +8,11 @@ $ git clone https://github.com/mathis2001/ParamFirstCheck
 
 ## Usage:
 ```bash
-$ cat urls.txt | python3 ParamFirstCheck.py [--sql] [--rce] [--lfi] [--open-redirect]
+$ cat urls.txt | python3 ParamFirstCheck.py [--sql] [--rce] [--lfi] [--open-redirect] [--proxy]
 
 or with an other tool like waybackurls
 
-$ waybackurls exemple.com | python3 ParamFirstCheck.py [--sql] [--rce] [--lfi] [--open-redirect]
+$ waybackurls exemple.com | python3 ParamFirstCheck.py [--sql] [--rce] [--lfi] [--open-redirect] [--proxy]
 ```
 ## Screenshots
 
@@ -20,3 +20,4 @@ $ waybackurls exemple.com | python3 ParamFirstCheck.py [--sql] [--rce] [--lfi] [
 ![tempsnip](https://user-images.githubusercontent.com/40497633/183855664-7bc3719e-80b1-417a-9752-cf9d76a241dd.png)
 ![tempsnip](https://user-images.githubusercontent.com/40497633/183856001-6ca9d21b-1769-4bd3-a75e-550fb1c97880.png)
 ![tempsnip](https://user-images.githubusercontent.com/40497633/183856275-1d99ae83-b1ef-4839-90f0-4c033caca1e0.png)
+![tempsnip](https://github.com/mathis2001/ParamFirstCheck/assets/40497633/f4b8bdcf-ea7c-4fda-85dd-06009f168e87)
