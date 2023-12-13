@@ -17,7 +17,7 @@ def Search(list, emptylist, line):
 	return emptylist
 
 def main():
-	SqlParam = ["id=","page=","dir=","search=","category=","class=","file=","url=","news=","item=","menu=","lang=","name=","ref=","title=","view=","topic=","thread=","type=","data=","form=","join=","main=","nav=","region="] 
+	SqlParam = ["Id=","id=","page=","dir=","search=","category=","class=","file=","url=","news=","item=","menu=","lang=","name=","ref=","title=","view=","topic=","thread=","type=","data=","form=","join=","main=","nav=","region="] 
 	RceParam = ["cmd=", "exec=","command=","execute=","ping=","query=","jump=","code=","reg=","do=","func=","arg=","option=","load=","process=","step=","read=","function=","req=","feature=","exe=","module=","payload=","run=","print="]
 	LfiParam = ["cat=", "dir=","action=","board=","date=","detail=","file=","download=","path=","folder=","prefix=","include=","page=","inc=","locate=","show=","doc=","site=","type=","view=","content=","document=","layout=","mod=","conf="]
 	OpenParam = ["next=", "url=", "target=","rurl=","dest=","destination=","redir=","redirect_url=","redirect_uri=","redirect=","/redirect/","cgi-bin/redirect","/out/","view=","/login?to=","image_url=","go=","return=","returnTo=","return_to=","checkout_url=","continue=","return_path=","post_logout_redirect_uri=","targetOrigin=","fallback=","ref_url=","host=","prejoin_data=","callback=","callback_url=","callbackUrl=","authorize_callback=","wp_http_referer=","link=","referrer="]
